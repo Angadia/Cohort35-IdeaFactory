@@ -27,7 +27,7 @@ RSpec.describe IdeasController, type: :controller do
         count_before = Idea.count
         valid_request
         count_after = Idea.count
-        expect(count_after).to eq(count.before + 1)
+        expect(count_after).to eq(count_before + 1)
       end
 
       it 'should redirect to the show page of that idea' do
@@ -41,14 +41,14 @@ RSpec.describe IdeasController, type: :controller do
       it 'should assign an invalid idea as an instance variable' do
         invalid_request
         expect(assigns(:idea)).to be_a(Idea)
-        expect(assings(:idea).valid?).to be(false)
+        expect(assigns(:idea).valid?).to be(false)
       end
 
       it 'should not create a job post in the db' do
         count_before = Idea.count
         invalid_request
         count_after = Idea.count
-        expect(count_after).to eq(count.before)
+        expect(count_after).to eq(count_before)
       end
     end
   end

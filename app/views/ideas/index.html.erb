@@ -1,0 +1,12 @@
+      <%= tag.ideas class: %w( ideas card-deck ) do %>
+        <% @ideas.each do |idea| %>
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">
+                <%= link_to idea.title, idea_path(idea.id) %>
+              </div>
+              <p class="card-text"><%= idea.description %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
