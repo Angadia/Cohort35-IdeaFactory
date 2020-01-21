@@ -8,6 +8,23 @@
               <div class="card-text">
                 <%= idea.description %><br>
                 <small class="text-muted">By <%= idea.user&.full_name || "DELETED" %></small>
+                <% if user_signed_in? %>
+                  <% like = idea.likes.find_by(user: current_user) %>
+                  <% if like.present? && can?(:destroy, like) %>
+                    <%=link_to(
+                      "Liked",
+                      like_path(like),
+                      method: :delete
+                    )%>
+                  <% elsif can?(:like, idea) %>
+                    <%=link_to(
+                      "Like",
+                      idea_likes_path(idea),
+                      method: :post
+                    )%>
+                  <% end %>
+                <% end %>
+                • <%= pluralize(idea.likes.count, "like") %>
               </div>
             </div>
           </div>
