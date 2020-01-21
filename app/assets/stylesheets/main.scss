@@ -10,8 +10,6 @@
 
 .card-deck {
   display: grid;
-  gap: 1em;
-  width: 100%;
 }
 
 .card {
@@ -27,45 +25,14 @@ input[type=submit] {
   margin-top: 1em;
 }
 
-.reviews .card {
+.reviews-list .card {
   margin-top: 1em;
 }
 
-.reviews .card-body {
+.reviews-list .card-body {
   padding: 0;
 }
 
-.reviews .card-text {
+.reviews-list .card-text {
   margin-bottom: 0;
-}
-
-// Extra small devices (portrait phones, less than 576px)
-// No media query for `xs` since this is the default in Bootstrap
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .card-deck {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .card-deck {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .card-deck {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .card-deck {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
 }
