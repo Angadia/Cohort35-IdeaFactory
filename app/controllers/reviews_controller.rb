@@ -18,9 +18,12 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find params[:id]
-    @review.destroy
-    flash[:alert] = "Review Deleted Succesfully"
-    redirect_to @review.idea
+    if can? :destroy, @review
+      @review.destroy
+      flash[:alert] = "Review Deleted Succesfully"
+      redirect_to @review.idea
+    else
+      redirect_to :root, alert: "Not Authorized"
   end
 
   private 
