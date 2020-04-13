@@ -24,6 +24,7 @@ class ReviewsController < ApplicationController
       redirect_to @review.idea
     else
       redirect_to :root, alert: "Not Authorized"
+    end
   end
 
   private 
