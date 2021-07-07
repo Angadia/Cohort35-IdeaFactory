@@ -31,5 +31,12 @@ module IdeaFactory
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Tell Rails to never generate helper and asset files when controllers
+    # are created by default.
+    config.generators do |g|
+      g.helper = false
+      g.assets = false
+    end
   end
 end
